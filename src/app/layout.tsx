@@ -14,7 +14,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Tip Calculator",
-  description: "Calculate tips and split bills easily",
+  description:
+    "Free online tip calculator. Quickly calculate tips by percentage and split bills evenly among friends. Simple, fast, and mobile-friendly.",
+  openGraph: {
+    title: "Tip Calculator",
+    description:
+      "Calculate tips quickly and split bills easily with this free online tool.",
+  },
+  alternates: {
+    canonical: "https://tip-calculator.vercel.app",
+  },
 };
 
 export default function RootLayout({
@@ -24,6 +33,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "Tip Calculator",
+              description: "Calculate tips quickly and split bills easily",
+              url: "https://tip-calculator.vercel.app",
+              applicationCategory: "FinanceApplication",
+              operatingSystem: "Web Browser",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
