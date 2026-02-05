@@ -13,16 +13,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tip Calculator",
+  title: "Tip Calculator - Split Bills & Calculate Tips",
   description:
     "Free online tip calculator. Quickly calculate tips by percentage and split bills evenly among friends. Simple, fast, and mobile-friendly.",
   openGraph: {
-    title: "Tip Calculator",
+    title: "Tip Calculator - Split Bills & Calculate Tips",
     description:
-      "Calculate tips quickly and split bills easily with this free online tool.",
+      "Free online tip calculator. Calculate tips by percentage and split bills evenly among friends. Simple, fast, and mobile-friendly.",
+    url: "https://tip-calculator.vercel.app",
+    siteName: "Tip Calculator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Tip Calculator - Split Bills & Calculate Tips",
+      },
+    ],
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tip Calculator - Split Bills & Calculate Tips",
+    description:
+      "Free online tip calculator. Calculate tips by percentage and split bills evenly among friends.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://tip-calculator.vercel.app",
+  },
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
@@ -33,31 +55,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "WebApplication",
+              "@type": "LocalBusiness",
               name: "Tip Calculator",
-              description: "Calculate tips quickly and split bills easily",
+              description:
+                "Free online tip calculator. Calculate tips by percentage and split bills evenly among friends.",
               url: "https://tip-calculator.vercel.app",
-              applicationCategory: "FinanceApplication",
-              operatingSystem: "Web Browser",
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "USD",
+              image: "https://tip-calculator.vercel.app/og-image.png",
+              priceRange: "Free",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "US",
               },
             }),
           }}
         />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
       </body>
     </html>
   );
