@@ -64,17 +64,19 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": "WebApplication",
               name: "Tip Calculator",
               description:
                 "Free online tip calculator. Calculate tips by percentage and split bills evenly among friends.",
               url: "https://tip-calculator.vercel.app",
-              image: "https://tip-calculator.vercel.app/og-image.png",
-              priceRange: "Free",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "US",
+              applicationCategory: "FinanceApplication",
+              operatingSystem: "Any",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
               },
+              browserRequirements: "Requires JavaScript",
             }),
           }}
         />
